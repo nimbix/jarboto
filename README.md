@@ -17,7 +17,7 @@ The following values are optional:
 # Usage
 Typical usage pattern when looking to conditionally fetch objects either from S3 or from another source:
 
-```
+```python
 import jarboto
 
 try:
