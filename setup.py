@@ -3,13 +3,13 @@ from distutils.core import setup
 setup(
     name='jarboto',
     packages=['jarboto'],
-    version='1.0.0',
+    version='1.0.1',
     license='bsd-3-clause',
     description='JARVICE container environment config wrapper for boto3',
     author='Nimbix, Inc.',
     author_email='noreply@nimbix.net',
     url='https://github.com/nimbix/jarboto',
-    download_url='https://github.com/nimbix/jarboto/archive/v1.0.tar.gz',
+    download_url='https://github.com/nimbix/jarboto/archive/v1.0.1.tar.gz',
     keywords=['s3', 'boto3', 'JARVICE'],
     install_requires=[
         'boto3',
