@@ -2,6 +2,7 @@ import os
 import sys
 import io
 import boto3
+from botocore.client import Config
 
 
 class ConfigError(Exception):
@@ -39,12 +40,16 @@ class S3:
 
         # accesskey, secretkey, and bucket are mandatory
         if accesskey and secretkey and bucket:
+
             self.s3 = boto3.resource('s3', aws_access_key_id=accesskey,
                                      aws_secret_access_key=secretkey,
                                      region_name=os.environ.get(
                                          'JARVICE_S3_REGION', None),
                                      endpoint_url=os.environ.get(
-                                         'JARVICE_S3_ENDPOINTURL', None))
+                                         'JARVICE_S3_ENDPOINTURL', None),
+                                     config=Config(request_checksum_calculation="when_required",
+                                                   response_checksum_validation="when_required")
+                                     )
             self.bucket = self.s3.Bucket(bucket)
             self.bucketname = bucket
             self.prefix = prefix
